@@ -1,6 +1,7 @@
 USE ppgcm1;
 DELIMITER $$
 
+DROP PROCEDURE IF EXISTS `uspInserirAluno`$$
 CREATE PROCEDURE uspInserirAluno (
 	proc_seletivo	VARCHAR(6),			-- processo seletivo, ex.: '2013/1'
 	cpf_passaporte	BIGINT,  			-- PK
@@ -132,6 +133,7 @@ END
 
 $$  -- delimita o fim da procedure
 
+DROP PROCEDURE IF EXISTS `uspInserirProcSeletivo`$$
 CREATE PROCEDURE uspInserirProcSeletivo (processo VARCHAR(6), dt_inicio DATE, dt_fim DATE)
 BEGIN
 	INSERT INTO processo_seletivo (processo, dt_inicio, dt_fim)
@@ -140,6 +142,7 @@ END
 
 $$ -- fim da procedure
 
+DROP PROCEDURE IF EXISTS `uspInserirAdmin`$$
 CREATE PROCEDURE uspInserirAdmin (usuario VARCHAR(100), nome VARCHAR(100), senha VARCHAR(255))
 BEGIN
 	INSERT INTO dados_admin (usuario,nome,senha)
@@ -148,6 +151,7 @@ END
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspSelecionaAluno`$$
 CREATE PROCEDURE uspSelecionaAluno (id BIGINT, s VARCHAR(255))
 BEGIN
 	-- seleciona o usuario que possui determinado id e senha
@@ -159,6 +163,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspUltimoPS`$$
 CREATE PROCEDURE uspUltimoPS()
 BEGIN
 	-- seleciona os dados do ultimo processo seletivo
@@ -167,6 +172,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspAtualizaDadosAluno`$$
 CREATE PROCEDURE uspAtualizaDadosAluno (
 	id 				BIGINT,				-- cpf usado como id 
 
@@ -305,6 +311,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspAlterarPS`$$
 CREATE PROCEDURE uspAlterarPS(id VARCHAR(6), ps VARCHAR(6), inicio DATE, fim DATE)
 BEGIN
 
@@ -317,6 +324,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspRemoverPS`$$
 CREATE PROCEDURE uspRemoverPS(ps VARCHAR(6))
 BEGIN
 	DELETE FROM processo_seletivo WHERE processo = ps;
@@ -324,6 +332,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspAtualizaDP`$$
 CREATE PROCEDURE uspAtualizaDP (
 	
 	id				BIGINT,  			-- usa o cpf como id para que o cpf possa ser alterado
@@ -371,6 +380,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspAtualizaFA`$$
 CREATE PROCEDURE uspAtualizaFA (
 
 	id				BIGINT,
@@ -413,6 +423,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspAtualizaDC`$$
 CREATE PROCEDURE uspAtualizaDC (
 	
 	id				BIGINT,
@@ -462,6 +473,7 @@ END;
 
 $$
 
+DROP PROCEDURE IF EXISTS `uspAtualizaCR`$$
 CREATE PROCEDURE uspAtualizaCR (
 	id				BIGINT,
 

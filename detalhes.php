@@ -188,6 +188,8 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                     <label>Data de Início: <span><?php echo $dtini_mest; ?></span></label>
                                     <label>Data de Término: <span><?php echo $dtfim_mest; ?></span></label>
                                 <?php } ?>
+                                <hr />
+                                <label>Link do Currículo Lattes: <span><?php echo $candidato['cvlattes']; ?></span></label>
                                 <br />
                             </div>
                             <!-- End Form -->
@@ -211,21 +213,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                 <label>Possível área de interesse: <span><?php echo $area_interesse[$candidato['area_interesse']] ?></span></label>
 
                                 <hr />
-                                <label>Possíveis áreas que NÃO lhe interessam:<span>
-                                        <?php
-                                        $flag_nenuhum = true;
-                                        for ($i = 0; $i < 6; $i++) {
-                                            if (strstr($candidato['area_n_interesse'], "$i") != "") {
-                                                echo "<br />" . "$area_interesse[$i]";
-                                                $flag_nenuhum = false;
-                                            }
-                                        } // fim for  
-                                        if ($flag_nenuhum)
-                                            echo "-";
-                                        ?>
-                                    </span></label>
-
-                                <hr />
+                                
                                 <label>Regime de dedicação ao curso: <span><?php echo $dedicacao[$candidato['dedicacao']] ?></span></label>
                                 <hr />
                                 <label>Vínculo Empregatício: <span><?php echo $vinculo_emp[$candidato['vinculo_emp']] ?></span></label>

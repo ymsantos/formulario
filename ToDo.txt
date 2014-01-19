@@ -1,7 +1,12 @@
-- arrumar abas abertas (o que nao estiver de acordo);
-- verificar a logica, pagina por pagina;
-- verificar "PPGCCS" pagina por pagina;
-- atualizar o BD;
-- rodar e ver se esta ok;
-- validacoes javascript;
-- editar "detalhes.php" para exibir mais infos.
+- arrumar abas abertas (o que nao estiver de acordo); OK
+- verificar a logica, pagina por pagina; OK
+- verificar "PPGCCS" pagina por pagina; OK
+- atualizar o BD; OK
+- rodar e ver se esta ok; OK
+- validacoes javascript; OK
+- editar "detalhes.php" para exibir mais infos;
+- "recuperaSenha.php";
+- subir pdf ou jpeg da carta de recomendação;
+- validacao de link (cvlattes);
+
+- TESTES CONSTANTES!

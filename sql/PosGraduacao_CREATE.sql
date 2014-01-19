@@ -13,7 +13,8 @@ USE ppgcm1;
 
 -- cria as tabelas:
 
-CREATE TABLE dados_aluno (
+DROP TABLE IF EXISTS `dados_aluno`;
+CREATE TABLE IF NOT EXISTS dados_aluno (
 	
 -- Dados Pessoais
 	proc_seletivo	VARCHAR(6), 		-- PK - processo seletivo, ex.: '2013/1'
@@ -93,7 +94,8 @@ CREATE TABLE dados_aluno (
 );
 
 
-CREATE TABLE processo_seletivo (
+DROP TABLE IF EXISTS `processo_seletivo`;
+CREATE TABLE IF NOT EXISTS processo_seletivo (
 
 	processo VARCHAR(6),			-- por ex.: '2013/1'
 	dt_inicio DATE,					-- inicio das inscricoes
@@ -102,7 +104,8 @@ CREATE TABLE processo_seletivo (
 	PRIMARY KEY (processo)
 );
 
-CREATE TABLE dados_admin (
+DROP TABLE IF EXISTS `dados_admin`;
+CREATE TABLE IF NOT EXISTS dados_admin (
 	
 -- 	Para guardar os dados do Admin e dos Professores
 

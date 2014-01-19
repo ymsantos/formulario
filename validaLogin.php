@@ -132,8 +132,8 @@ if ($cpf != "" && $senha != "") {
             else
                 $_SESSION['dtfim_mest'] = "";
 
+            $_SESSION['cvlattes'] = $dadosAluno['cvlattes'];
             $_SESSION['area_interesse'] = $dadosAluno['area_interesse'];
-            $_SESSION['area_n_interesse'] = $dadosAluno['area_n_interesse'];
             $_SESSION['dedicacao'] = $dadosAluno['dedicacao'];
             $_SESSION['vinculo_emp'] = $dadosAluno['vinculo_emp'];
             $_SESSION['interesse_bolsa'] = $dadosAluno['interesse_bolsa'];
@@ -144,6 +144,14 @@ if ($cpf != "" && $senha != "") {
             $_SESSION['notamedia'] = str_replace(".", ",", $dadosAluno['notamedia']);
 
             $_SESSION['nome_docente'] = $dadosAluno['nome_docente'];
+
+            $_SESSION['provalocal'] = $dadosAluno['provalocal'];
+            $_SESSION['locprova'] = ($dadosAluno['provalocal']) == "" ? 0 : 1;
+            
+            $_SESSION['profnome'] = $dadosAluno['profnome'];
+            $_SESSION['profprova'] = ($dadosAluno['profnome']) == "" ? 0 : 1;
+            $_SESSION['profinst'] = $dadosAluno['profinst'];
+            $_SESSION['profemail'] = $dadosAluno['profemail'];           
 
             $_SESSION['nome_r1'] = $dadosAluno['nome_r1'];
             $_SESSION['email_r1'] = $dadosAluno['email_r1'];

@@ -359,7 +359,12 @@ function validaFormacaoAcademica(){
         document.getElementById("dtinicio-mest").value = "";
         document.getElementById("dtfim-mest").value = "";
     }
-    
+
+    // link curriculo lattes
+    // if(!validaLetra("cvlattes", document.getElementById("cvlattes").value)){
+    //     alert("Preencha corretamente o link para o Currículo Lattes");
+    //     return false;
+    // }
     
     document.getElementById("form-inscricao").action = "RecebeDadosAlteracao.php?dados=fa";
     showDivMenu('dc');
@@ -368,38 +373,16 @@ function validaFormacaoAcademica(){
 
 function validaDadosComplementares(){
     
-    aux = -1; // variavel para verificar se a area de interesse e a área de "não interesse" são iguais
-    
     // Area de interesse
     flag = false;
     radio = document.getElementsByName("interesse");
     for(i=0; i < radio.length;i++){
         if(radio[i].checked){
             flag = true;
-            aux = i;
         }
     }
     if(flag == false){
         alert("Selecione uma área de interesse");
-        return false;
-    }
-    
-    // Areas que nao interessam
-    flag = false;
-    radio = document.getElementsByName("n_interesse[]");
-    for(i=0; i < radio.length;i++){
-        if(radio[i].checked){
-            flag = true;
-        }
-    }   
-    
-    if(flag == false){
-        alert("Selecione pelo menos uma área na qual você não tem interesse");
-        return false;
-    }
-    
-    if(aux<6 && radio[aux].checked){
-        alert("Áreas de interesse/não-interesse precisam ser diferentes");
         return false;
     }
         
@@ -487,6 +470,47 @@ function validaDadosComplementares(){
     }
     
     // Contato Previo - nao precisa validar
+
+    // Prova de Ingresso
+    if(document.getElementsByName("loc")[1].checked){
+        // local da prova
+        if(!validaLetra("provalocal", document.getElementById("provalocal").value)){
+            alert("Preencha corretamente o local da prova");
+            return false;
+        }
+    
+        // encontrou professor?
+        if(document.getElementsByName("profprova")[1].checked){
+            // nome do professor
+            if(!validaLetra("nomeprof", document.getElementById("nomeprof").value)){
+                alert("Preencha corretamente a o nome do professor");
+                return false;
+            }    
+    
+            // instituicao do professor
+            if(!validaLetra("instprof", document.getElementById("instprof").value)){
+                alert("Preencha corretamente a instituição do professor");
+                return false;
+            }
+    
+            // email do professor
+            if(!validaEmail("emailprof", document.getElementById("emailprof").value)){
+                alert("Preencha corretamente o email do professor");
+                return false;
+            }
+        }else {
+            // para garantir que nenhum valor será colocado no bd:
+            document.getElementById("nomeprof").value = "";
+            document.getElementById("instprof").value = "";
+            document.getElementById("emailprof").value = "";
+        }
+    }else {
+        // para garantir que nenhum valor será colocado no bd:
+        document.getElementById("provalocal").value = "";
+        document.getElementById("nomeprof").value = "";
+        document.getElementById("instprof").value = "";
+        document.getElementById("emailprof").value = "";
+    }
         
         
     document.getElementById("form-inscricao").action = "RecebeDadosAlteracao.php?dados=dc";

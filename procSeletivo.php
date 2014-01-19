@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION['usuario'])) {
-// 'usuario' só é setado qdo é prof-ppgccs
+// 'usuario' só é setado qdo é prof-ppgcm
     include('oops.php');
 } else {
 //abre a pagina normalmente

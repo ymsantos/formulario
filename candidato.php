@@ -404,19 +404,19 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                         <label>Prova de Ingresso: *<br />
                                             <span>Marque a seguir a situação em que você deseja realizar a prova de ingresso:</span>
                                         </label>
-                                        <input type="radio" name="loc" value="0" onchange="hideDiv('localprova');" <?php if (strstr($_SESSION['locprova'], "0") != "") echo 'checked'; ?> /> Em Sorocaba.
-                                        <br /><input type="radio" name="loc" value="1" onchange="showDiv('localprova');" <?php if (strstr($_SESSION['locprova'], "1") != "") echo 'checked'; ?> /> Fora de Sorocaba.
-                                        <div id="localprova" <?php if (!strstr($_SESSION['locprova'], "1")) echo 'style=display:none'; ?>>
+                                        <input type="radio" name="loc" value="0" onchange="hideDiv('localprova');" <?php if ($_SESSION['locprova'] == "0") echo 'checked'; ?> /> Em Sorocaba.
+                                        <br /><input type="radio" name="loc" value="1" onchange="showDiv('localprova');" <?php if ($_SESSION['locprova'] == "1") echo 'checked'; ?> /> Fora de Sorocaba.
+                                        <div id="localprova" <?php if ($_SESSION['locprova'] == "0") echo 'style=display:none'; ?>>
                                             <p>
                                             <label>Local onde deseja realizar a prova: *</label>
                                             <input type="text" name="provalocal" id="provalocal" value="<?php echo $_SESSION['provalocal'] ?>" size="50" class="field" />
                                             </p>
                                             <p>
                                             <label>Professor responsável pela aplicação: *</label>
-                                            <input type="radio" name="profprova" value="0" onchange="hideDiv('provaprof');" <?php if (strstr($_SESSION['profprofa'], "0") != "") echo 'checked'; ?> /> Ainda não encontrei um professor para aplicar a prova.
-                                            <br /><input type="radio" name="profprova" value="1" onchange="showDiv('provaprof');" <?php if (strstr($_SESSION['profprova'], "1") != "") echo 'checked'; ?> /> Já encontrei um professor para aplicar a prova.
+                                            <input type="radio" name="profprova" value="0" onchange="hideDiv('provaprof');" <?php if ($_SESSION['profprova'] == "0") echo 'checked'; ?> /> Ainda não encontrei um professor para aplicar a prova.
+                                            <br /><input type="radio" name="profprova" value="1" onchange="showDiv('provaprof');" <?php if ($_SESSION['profprova'] == "1") echo 'checked'; ?> /> Já encontrei um professor para aplicar a prova.
                                             </p>
-                                            <div id="provaprof" <?php if (!strstr($_SESSION['profprova'], "1")) echo 'style=display:none'; ?>>
+                                            <div id="provaprof" <?php if ($_SESSION['profprova'] == "0") echo 'style=display:none'; ?>>
                                                 <p>
                                                 <label>Nome do professor responsável pela aplicação da prova: *</label>
                                                 <input type="text" name="nomeprof" id="nomeprof" value="<?php echo $_SESSION['profnome'] ?>" size="50" class="field" />
