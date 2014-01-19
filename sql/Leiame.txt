@@ -1,0 +1,4 @@
+
+Os arquivos PosGraduacao_CREATE e PosGraduacao_PROCEDURE funcionam se forem executados diretamente pela linha de comando no MySQL.
+
+Caso seja usado o PhpMyAdmin, deve-se criar um banco de dados com o nome 'inscricao_ppgccs', e dentro dele utilizar a opção de importar. Ao selecionar o arquivo, escolher o arquivo EXPORT_inscricao_ppgccs, que contém os scripts de CREATE e das PROCEDURES
