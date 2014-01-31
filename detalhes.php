@@ -189,7 +189,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                     <label>Data de Término: <span><?php echo $dtfim_mest; ?></span></label>
                                 <?php } ?>
                                 <hr />
-                                <label>Link do Currículo Lattes: <span><?php echo $candidato['cvlattes']; ?></span></label>
+                                <label>Link do Currículo Lattes: <span><a href="<?php echo $candidato['cvlattes']; ?>"><?php echo $candidato['cvlattes']; ?></a></span></label>
                                 <br />
                             </div>
                             <!-- End Form -->
@@ -232,6 +232,28 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                 <label>Nota média da graduação: <span><?php echo $candidato['notamedia'] ?></span></label>
                                 <hr />
                                 <label>Contato Prévio: <span><?php echo $candidato['nome_docente'] ?></span></label>
+                                <?php
+                                if ($candidato['provalocal'] == "") {
+                                    echo "<hr />";
+                                    echo "<label>Local de realização da prova: <span>Sorocaba</span></label>";
+                                } else {
+                                    ?>
+                                    <hr /> 
+                                    <label>Local de realização da prova: <span><?php echo $candidato['provalocal']; ?></span></label>
+                                    <?php
+                                    if ($candidato['profnome'] == "") {
+                                        echo "<hr />";
+                                        echo "<label>Professor que aplicará a prova: <span>Ainda não encontrei</span></label>";
+                                    } else {
+                                        ?> 
+                                        <hr />
+                                        <label>Professor que aplicará a prova: <span><?php echo $candidato['profnome']; ?></span></label>
+                                        <hr />
+                                        <label>Instituição do professor: <span><?php echo $candidato['profinst']; ?></span></label>
+                                        <hr />
+                                        <label>Email do professor: <span><?php echo $candidato['profemail']; ?></span></label>
+                                    <?php }
+                                      } ?>
                                 <br />
 
                             </div>

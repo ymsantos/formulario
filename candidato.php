@@ -6,7 +6,8 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
     //abre a pagina normalmente
     ?>
 
-    <?php include("cabecalho.php") ?>
+    <?php include("cabecalho.php");
+          include('conexao.php'); ?>
 
     <!-- Header -->
     <div id="header">
@@ -55,7 +56,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
 
                 <!-- Content -->
                 <div id="content">
-                    <form id="form-inscricao" name="form-inscricao" method="post" action="RecebeDadosAlteracao.php">
+                    <form id="form-inscricao" name="form-inscricao" method="post" action="RecebeDadosAlteracao.php" enctype="multipart/form-data">
 
                         <?php if ($_SESSION['finalizado'] == true && ($_SESSION['processo'] == $_SESSION['ultimo_ps'])) { ?>
                             <h2>Você já está inscrito no Processo Seletivo <?php echo $_SESSION['processo']; ?>. 
@@ -296,12 +297,12 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                     <!-- <label>Possíveis áreas que NÃO lhe interessam: *<br /> 
                                         <span> Caso não seja aceito na área selecionada acima, escolha quais áreas você NÃO gostaria de atuar.</span></label>
                                     <p>
-                                        <input type="checkbox" name="n_interesse[]" value="0" <?php if (strstr($_SESSION['area_n_interesse'], "0") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Banco de Dados e Inteligência Artificial.
-                                        <br /><input type="checkbox" name="n_interesse[]" value="1" <?php if (strstr($_SESSION['area_n_interesse'], "1") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Engenharia de Software e Interface Humano-Computador.
-                                        <br /><input type="checkbox" name="n_interesse[]" value="2" <?php if (strstr($_SESSION['area_n_interesse'], "2") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Redes de Computadores, Sistemas Distribuídos, Computação Móvel e Ubíqua.
-                                        <br /><input type="checkbox" name="n_interesse[]" value="3" <?php if (strstr($_SESSION['area_n_interesse'], "3") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Teoria dos Grafos, Análise de Algoritmos e Teoria da Computação.
-                                        <br /><input type="checkbox" name="n_interesse[]" value="4" <?php if (strstr($_SESSION['area_n_interesse'], "4") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado (a) na(s) área(s) de Processamento de Imagens e Sinais, Computação Gráfica e Projeto e Desenvolvimento de Jogos Eletrônicos Interativos.
-                                        <br /><input type="checkbox" name="n_interesse[]" value="5" <?php if (strstr($_SESSION['area_n_interesse'], "5") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado (a) na(s) área(s) de Linguagens de Programação e Compiladores.
+                                        <input type="checkbox" name="n_interesse[]" value="0" <?php //if (strstr($_SESSION['area_n_interesse'], "0") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Banco de Dados e Inteligência Artificial.
+                                        <br /><input type="checkbox" name="n_interesse[]" value="1" <?php //if (strstr($_SESSION['area_n_interesse'], "1") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Engenharia de Software e Interface Humano-Computador.
+                                        <br /><input type="checkbox" name="n_interesse[]" value="2" <?php //if (strstr($_SESSION['area_n_interesse'], "2") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Redes de Computadores, Sistemas Distribuídos, Computação Móvel e Ubíqua.
+                                        <br /><input type="checkbox" name="n_interesse[]" value="3" <?php //if (strstr($_SESSION['area_n_interesse'], "3") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado(a) na(s) área(s) de Teoria dos Grafos, Análise de Algoritmos e Teoria da Computação.
+                                        <br /><input type="checkbox" name="n_interesse[]" value="4" <?php //if (strstr($_SESSION['area_n_interesse'], "4") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado (a) na(s) área(s) de Processamento de Imagens e Sinais, Computação Gráfica e Projeto e Desenvolvimento de Jogos Eletrônicos Interativos.
+                                        <br /><input type="checkbox" name="n_interesse[]" value="5" <?php //if (strstr($_SESSION['area_n_interesse'], "5") != "") echo 'checked'; ?> /> Não tenho interesse e não gostaria de ser orientado (a) na(s) área(s) de Linguagens de Programação e Compiladores.
                                     </p>  
                                     <hr /> -->
                                     <label>Regime de dedicação ao curso: *<br />
@@ -484,6 +485,21 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                     <div id="outro1"  <?php if (!strstr($_SESSION['relacao_r1'], "5") != "") echo 'style=display:none'; ?> >
                                         <input type="text" name="outro-r1" id="outro-r1"  value="<?php echo $_SESSION['outro_r1'] ?>" size="50" maxlength="100" class="field"/> 
                                     </div>
+                                    <?php 
+                                        if ($_SESSION['carta1'] != ""){ ?>
+                                            <p>
+                                                <label>Carta de recomendação já enviada:</label>
+                                                <a href="<?php echo $_SESSION['carta1'] ?>">Carta do recomendante 1</a>
+                                            </p>
+                                    <?php }
+                                     ?>
+                                    <!-- ==========================================================================================================-->
+                                    <!-- ==========================================================================================================-->
+                                    <label>Upload da carta de recomendação do recomendante 1 (em pdf ou jpg):</label>
+                                    <input name="letterfile1" type="file" /><br />
+                                    <!-- <input type="submit" value="Send files" /> -->
+                                    <!-- ==========================================================================================================-->
+                                    <!-- ==========================================================================================================-->
                                     <hr />
                                     <p>
                                         <label>Nome do recomendante 2 *</label>
@@ -507,6 +523,21 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                     <div id="outro2" <?php if (!strstr($_SESSION['relacao_r2'], "5")) echo 'style=display:none'; ?>>
                                         <input type="text" name="outro-r2" id="outro-r2" value="<?php echo $_SESSION['outro_r2'] ?>" size="50" maxlength="100" class="field"/> 
                                     </div>
+                                    <?php 
+                                        if ($_SESSION['carta2'] != ""){ ?>
+                                            <p>
+                                                <label>Carta de recomendação já enviada:</label>
+                                                <a href="<?php echo $_SESSION['carta2'] ?>">Carta do recomendante 2</a>
+                                            </p>
+                                    <?php }
+                                     ?>
+                                    <!-- ==========================================================================================================-->
+                                    <!-- ==========================================================================================================-->
+                                    <label>Upload da carta de recomendação do recomendante 2 (em pdf ou jpg):</label>
+                                    <input name="letterfile2" type="file" /><br />
+                                    <!-- <input type="submit" value="Send files" /> -->
+                                    <!-- ==========================================================================================================-->
+                                    <!-- ==========================================================================================================-->
                                     <p><em>* Campos Obrigatórios</em></p>
                                 </div>
                                 <!-- End Form -->

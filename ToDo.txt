@@ -4,9 +4,14 @@
 - atualizar o BD; OK
 - rodar e ver se esta ok; OK
 - validacoes javascript; OK
-- editar "detalhes.php" para exibir mais infos;
+- editar "detalhes.php" para exibir mais infos; OK
+- subir pdf ou jpeg da carta de recomendação; OK
+- tratar erros e msgs de sucesso ao subir fotos;
+- validar quando foto nao eh selecionada ou qdo eh formato errado;
+- excluir do disco qdo aluno eh excluido do processo;
+- mostrar link para carta em detalhes;
+- salvar txt com infos;
 - "recuperaSenha.php";
-- subir pdf ou jpeg da carta de recomendação;
-- validacao de link (cvlattes);
+- atualizar corretamente radios marcados logo apos uma atualização de cadastro;
 
 - TESTES CONSTANTES!

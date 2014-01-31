@@ -140,6 +140,75 @@
     $_SESSION['relacao_r1'] = $relacao_r1 = preg_replace( "/, $/", "", $relacao_r1);
     
     $_SESSION['outro_r1'] = $outro_r1 = isset($_POST['outro-r1'])?$_POST['outro-r1']:"";
+
+    //=======================================================================================
+    //=======================================================================================
+    // Pasta onde o arquivo vai ser salvo
+    $carta1 = "";
+    $temp_nome_dir = $_UP1['pasta'] = "cartas/$id/carta1";
+    mkdir($temp_nome_dir, 0777, true);
+    $_UP1['pasta'] = $_UP1['pasta'] . "/";
+
+    // Tamanho máximo do arquivo (em Bytes)
+    $_UP1['tamanho'] = 1024 * 1024 * 2; // 2Mb
+
+    // Array com as extensões permitidas
+    $_UP1['extensoes'] = array('jpg', 'pdf');
+
+    // Renomeia o arquivo? (Se true, o arquivo será salvo como .jpg e um nome único)
+    $_UP1['renomeia'] = false;
+
+    // Array com os tipos de erros de upload do PHP
+    $_UP1['erros'][0] = 'Não houve erro';
+    $_UP1['erros'][1] = 'O arquivo no upload é maior do que o limite do PHP';
+    $_UP1['erros'][2] = 'O arquivo ultrapassa o limite de tamanho especifiado no HTML';
+    $_UP1['erros'][3] = 'O upload do arquivo foi feito parcialmente';
+    $_UP1['erros'][4] = 'Não foi feito o upload do arquivo';
+
+    // Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
+    if ($_FILES['letterfile1']['error'] != 0) {
+        die("Não foi possível fazer o upload, erro:<br />" . $_UP1['erros'][$_FILES['letterfile1']['error']]);
+        exit; // Para a execução do script
+    }
+
+    // Caso script chegue a esse ponto, não houve erro com o upload e o PHP pode continuar
+    // Faz a verificação da extensão do arquivo
+    $extensao = strtolower(end(explode('.', $_FILES['letterfile1']['name'])));
+    if (array_search($extensao, $_UP1['extensoes']) === false) {
+        echo "Por favor, envie arquivos com as seguintes extensões: jpg ou pdf";
+    }
+
+    // Faz a verificação do tamanho do arquivo
+    else if ($_UP1['tamanho'] < $_FILES['letterfile1']['size']) {
+        echo "O arquivo enviado é muito grande, envie arquivos de até 2Mb.";
+    }
+
+    // O arquivo passou em todas as verificações, hora de tentar movê-lo para a pasta
+    else {
+        // Primeiro verifica se deve trocar o nome do arquivo
+        if ($_UP1['renomeia'] == true) {
+            // Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .jpg
+            $nome_final = time().'.jpg';
+        } else {
+        // Mantém o nome original do arquivo
+        $nome_final = $_FILES['letterfile1']['name'];
+        }
+
+        // Depois verifica se é possível mover o arquivo para a pasta escolhida
+        if (move_uploaded_file($_FILES['letterfile1']['tmp_name'], $_UP1['pasta'] . $nome_final)) {
+            // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
+            //echo "Upload efetuado com sucesso!";
+            //echo '<br /><a href="' . $_UP1['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
+            $carta1 = $_UP1['pasta'] . $nome_final;
+        } else {
+            // Não foi possível fazer o upload, provavelmente a pasta está incorreta
+            echo "Não foi possível enviar o arquivo, tente novamente";
+        }
+    }
+
+    //=======================================================================================
+    //=======================================================================================
+
     $_SESSION['nome_r2'] = $nome_r2 = isset($_POST['nome-r2'])?$_POST['nome-r2']:"";
     $_SESSION['email_r2'] = $email_r2 = isset($_POST['email-r2'])?$_POST['email-r2']:"";
     
@@ -152,6 +221,74 @@
     $_SESSION['relacao_r2'] = $relacao_r2 = preg_replace( "/, $/", "", $relacao_r2);
     
     $_SESSION['outro_r2'] = $outro_r2 = isset($_POST['outro-r2'])?$_POST['outro-r2']:"";
+
+    //=======================================================================================
+    //=======================================================================================
+    // Pasta onde o arquivo vai ser salvo
+    $carta2 = "";
+    $temp_nome_dir = $_UP2['pasta'] = "cartas/$id/carta2";
+    mkdir($temp_nome_dir, 0777, true);
+    $_UP2['pasta'] = $_UP2['pasta'] . '/';
+
+    // Tamanho máximo do arquivo (em Bytes)
+    $_UP2['tamanho'] = 1024 * 1024 * 2; // 2Mb
+
+    // Array com as extensões permitidas
+    $_UP2['extensoes'] = array('jpg', 'pdf');
+
+    // Renomeia o arquivo? (Se true, o arquivo será salvo como .jpg e um nome único)
+    $_UP2['renomeia'] = false;
+
+    // Array com os tipos de erros de upload do PHP
+    $_UP2['erros'][0] = 'Não houve erro';
+    $_UP2['erros'][1] = 'O arquivo no upload é maior do que o limite do PHP';
+    $_UP2['erros'][2] = 'O arquivo ultrapassa o limite de tamanho especifiado no HTML';
+    $_UP2['erros'][3] = 'O upload do arquivo foi feito parcialmente';
+    $_UP2['erros'][4] = 'Não foi feito o upload do arquivo';
+
+    // Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
+    if ($_FILES['letterfile2']['error'] != 0) {
+        die("Não foi possível fazer o upload, erro:<br />" . $_UP2['erros'][$_FILES['letterfile2']['error']]);
+        exit; // Para a execução do script
+    }
+
+    // Caso script chegue a esse ponto, não houve erro com o upload e o PHP pode continuar
+    // Faz a verificação da extensão do arquivo
+    $extensao = strtolower(end(explode('.', $_FILES['letterfile2']['name'])));
+    if (array_search($extensao, $_UP2['extensoes']) === false) {
+        echo "Por favor, envie arquivos com as seguintes extensões: jpg ou pdf";
+    }
+
+    // Faz a verificação do tamanho do arquivo
+    else if ($_UP2['tamanho'] < $_FILES['letterfile2']['size']) {
+        echo "O arquivo enviado é muito grande, envie arquivos de até 2Mb.";
+    }
+
+    // O arquivo passou em todas as verificações, hora de tentar movê-lo para a pasta
+    else {
+        // Primeiro verifica se deve trocar o nome do arquivo
+        if ($_UP2['renomeia'] == true) {
+            // Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .jpg
+            $nome_final = time().'.jpg';
+        } else {
+        // Mantém o nome original do arquivo
+        $nome_final = $_FILES['letterfile2']['name'];
+        }
+
+        // Depois verifica se é possível mover o arquivo para a pasta escolhida
+        if (move_uploaded_file($_FILES['letterfile2']['tmp_name'], $_UP2['pasta'] . $nome_final)) {
+            // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
+            //echo "Upload efetuado com sucesso!";
+            //echo '<br /><a href="' . $_UP2['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
+            $carta2 = $_UP2['pasta'] . $nome_final;
+        } else {
+            // Não foi possível fazer o upload, provavelmente a pasta está incorreta
+            echo "Não foi possível enviar o arquivo, tente novamente";
+        }
+    }
+
+    //=======================================================================================
+    //=======================================================================================
     
     //$finalizado = isset($_POST['finalizado'])?$_POST['finalizado']:'false';
     $finalizado='true';
@@ -208,10 +345,12 @@
 		'$nome_r1',
 		'$email_r1',
 		'$relacao_r1',
+        '$carta1',
 		'$outro_r1',
 		'$nome_r2',
 		'$email_r2',
 		'$relacao_r2',
+        '$carta2',
 		'$outro_r2',
                 $finalizado)";
     
@@ -272,10 +411,12 @@
                 '$nome_r1',
 		'$email_r1',
 		'$relacao_r1',
+        '$carta1',
 		'$outro_r1',
 		'$nome_r2',
 		'$email_r2',
 		'$relacao_r2',
+        '$carta2',
 		'$outro_r2');";
     
     //echo $sql;

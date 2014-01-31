@@ -156,10 +156,12 @@ if ($cpf != "" && $senha != "") {
             $_SESSION['nome_r1'] = $dadosAluno['nome_r1'];
             $_SESSION['email_r1'] = $dadosAluno['email_r1'];
             $_SESSION['relacao_r1'] = $dadosAluno['relacao_r1'];
+            $_SESSION['carta1'] = $dadosAluno['carta1'];
             $_SESSION['outro_r1'] = $dadosAluno['outro_r1'];
             $_SESSION['nome_r2'] = $dadosAluno['nome_r2'];
             $_SESSION['email_r2'] = $dadosAluno['email_r2'];
             $_SESSION['relacao_r2'] = $dadosAluno['relacao_r2'];
+            $_SESSION['carta2'] = $dadosAluno['carta2'];
             $_SESSION['outro_r2'] = $dadosAluno['outro_r2'];
 
             $_SESSION['finalizado'] = $dadosAluno['finalizado'];

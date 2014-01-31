@@ -95,10 +95,12 @@ CREATE TABLE IF NOT EXISTS `dados_aluno` (
   `nome_r1` varchar(100) DEFAULT NULL,
   `email_r1` varchar(100) DEFAULT NULL,
   `relacao_r1` varchar(50) DEFAULT NULL,
+  `carta1` varchar(100) DEFAULT NULL,
   `outro_r1` varchar(100) DEFAULT NULL,
   `nome_r2` varchar(100) DEFAULT NULL,
   `email_r2` varchar(100) DEFAULT NULL,
   `relacao_r2` varchar(50) DEFAULT NULL,
+  `carta2` varchar(100) DEFAULT NULL,
   `outro_r2` varchar(100) DEFAULT NULL,
   `finalizado` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`cpf_passaporte`),
@@ -158,10 +160,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `uspAtualizaCR`(
 	nome_r1			VARCHAR(100), 
 	email_r1		VARCHAR(100),
 	relacao_r1		VARCHAR(50),
+	carta1			VARCHAR(100),
 	outro_r1		VARCHAR(100), -- sse escolher a opcao 'outro'
 	nome_r2			VARCHAR(100),
 	email_r2		VARCHAR(100),
 	relacao_r2		VARCHAR(50),
+	carta2			VARCHAR(100),
 	outro_r2		VARCHAR(100) -- sse escolher a opcao 'outro'
 )
 BEGIN
@@ -169,10 +173,12 @@ BEGIN
 	SET dados_aluno.nome_r1 = nome_r1,
 		dados_aluno.email_r1 = email_r1,
 		dados_aluno.relacao_r1 = relacao_r1,
+		dados_aluno.carta1 = carta1,
 		dados_aluno.outro_r1 = outro_r1,
 		dados_aluno.nome_r2 = nome_r2,
 		dados_aluno.email_r2 = email_r2,
 		dados_aluno.relacao_r2 = relacao_r2,
+		dados_aluno.carta2 = carta2,
 		dados_aluno.outro_r2 = outro_r2,
 		dados_aluno.finalizado = finalizado
 	WHERE dados_aluno.cpf_passaporte = id
@@ -249,10 +255,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `uspAtualizaDadosAluno`(
 	nome_r1			VARCHAR(100), 
 	email_r1		VARCHAR(100),
 	relacao_r1		VARCHAR(50),
+	carta1			VARCHAR(100),
 	outro_r1		VARCHAR(100), -- sse escolher a opcao 'outro'
 	nome_r2			VARCHAR(100),
 	email_r2		VARCHAR(100),
 	relacao_r2		VARCHAR(50),
+	carta2			VARCHAR(100),
 	outro_r2		VARCHAR(100), -- sse escolher a opcao 'outro'
 
 	finalizado 		BOOL
@@ -306,10 +314,12 @@ BEGIN
 		dados_aluno.nome_r1 = nome_r1,
 		dados_aluno.email_r1 = email_r1,
 		dados_aluno.relacao_r1 = relacao_r1,
+		dados_aluno.carta1 = carta1,
 		dados_aluno.outro_r1 = outro_r1,
 		dados_aluno.nome_r2 = nome_r2,
 		dados_aluno.email_r2 = email_r2,
 		dados_aluno.relacao_r2 = relacao_r2,
+		dados_aluno.carta2 = carta2,
 		dados_aluno.outro_r2 = outro_r2,
 		dados_aluno.finalizado = finalizado
 	WHERE dados_aluno.cpf_passaporte = id
@@ -525,14 +535,16 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `uspInserirAluno`(
 	nome_r1			VARCHAR(100), 
 	email_r1		VARCHAR(100),
 	relacao_r1		SET('0','1','2','3','4','5') ,
+	carta1			VARCHAR(100),
 	outro_r1		VARCHAR(100), -- sse escolher a opcao 'outro'
 	nome_r2			VARCHAR(100),
 	email_r2		VARCHAR(100),
 	relacao_r2		SET('0','1','2','3','4','5') ,
+	carta2			VARCHAR(100),
 	outro_r2		VARCHAR(100) -- sse escolher a opcao 'outro'
 )
 BEGIN
-INSERT INTO `posgrad_bd`.`dados_aluno` (proc_seletivo, cpf_passaporte, senha, nome_aluno, identidade, data_nasc, nacionalidade, pais, sexo, endereco, bairro, cep, cidade_estado, tel_fixo, tel_celular, email, cor_raca, graduacao, inst_grad, dtini_grad, dtfim_grad, especializacao, inst_esp, dtini_esp, dtfim_esp, mestrado, inst_mest, dtini_mest, dtfim_mest, cvlattes, area_interesse, dedicacao, vinculo_emp, interesse_bolsa, exp_profissional, ic, ic_descricao, ingles, notamedia, nome_docente, provalocal, profnome, profinst, profemail, nome_r1, email_r1, relacao_r1, outro_r1, nome_r2, email_r2, relacao_r2, outro_r2)
+INSERT INTO `posgrad_bd`.`dados_aluno` (proc_seletivo, cpf_passaporte, senha, nome_aluno, identidade, data_nasc, nacionalidade, pais, sexo, endereco, bairro, cep, cidade_estado, tel_fixo, tel_celular, email, cor_raca, graduacao, inst_grad, dtini_grad, dtfim_grad, especializacao, inst_esp, dtini_esp, dtfim_esp, mestrado, inst_mest, dtini_mest, dtfim_mest, cvlattes, area_interesse, dedicacao, vinculo_emp, interesse_bolsa, exp_profissional, ic, ic_descricao, ingles, notamedia, nome_docente, provalocal, profnome, profinst, profemail, nome_r1, email_r1, relacao_r1, carta1, outro_r1, nome_r2, email_r2, relacao_r2, carta2, outro_r2)
 VALUES( proc_seletivo,
 		cpf_passaporte,
 		senha,
@@ -580,10 +592,12 @@ VALUES( proc_seletivo,
 		nome_r1,
 		email_r1,
 		relacao_r1,
+		carta1,
 		outro_r1,
 		nome_r2,
 		email_r2,
 		relacao_r2,
+		carta2,
 		outro_r2
 );
 
