@@ -1,5 +1,5 @@
 <?php
-if (!isset($_POST['nome']) && !isset($_SESSION['nome'])) {
+if (!isset($_POST['nome']) && !isset($_SESSION['nome']) && !isset($_GET['erro'])) {
     include('oops.php');
 } else {
     //abre a pagina normalmente
@@ -44,8 +44,10 @@ if (!isset($_POST['nome']) && !isset($_SESSION['nome'])) {
                     <!-- Message Error -->
                     <div class="msg msg-error">
                         <p><strong>Desculpe, mas houve um erro ao salvar seus dados.</strong></p>
+                        
                         <!--<a href="#" class="close">close</a> -->
                     </div>
+                    <p><strong><?php echo $_GET['erro']; ?></strong></p>
                     <!-- End Message Error -->
 
 

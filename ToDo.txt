@@ -6,10 +6,10 @@
 - validacoes javascript; OK
 - editar "detalhes.php" para exibir mais infos; OK
 - subir pdf ou jpeg da carta de recomendação; OK
-- tratar erros e msgs de sucesso ao subir fotos;
-- validar quando foto nao eh selecionada ou qdo eh formato errado;
-- excluir do disco qdo aluno eh excluido do processo;
-- mostrar link para carta em detalhes;
+- tratar erros e msgs de sucesso ao subir fotos; OK
+- validar quando foto nao eh selecionada ou qdo eh formato errado; OK
+- excluir do disco qdo aluno eh excluido do processo; OK
+- mostrar link para carta em detalhes; OK
 - salvar txt com infos;
 - "recuperaSenha.php";
 - atualizar corretamente radios marcados logo apos uma atualização de cadastro;

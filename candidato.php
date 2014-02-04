@@ -489,14 +489,15 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                         if ($_SESSION['carta1'] != ""){ ?>
                                             <p>
                                                 <label>Carta de recomendação já enviada:</label>
-                                                <a href="<?php echo $_SESSION['carta1'] ?>">Carta do recomendante 1</a>
+                                                <a href="<?php echo $_SESSION['carta1']; ?>" target="_blank">Carta do recomendante 1</a>
                                             </p>
                                     <?php }
                                      ?>
+                                     <input type="hidden" name="temcarta1" id="temcarta1" value="<?php echo $_SESSION['carta1']; ?>" />
                                     <!-- ==========================================================================================================-->
                                     <!-- ==========================================================================================================-->
-                                    <label>Upload da carta de recomendação do recomendante 1 (em pdf ou jpg):</label>
-                                    <input name="letterfile1" type="file" /><br />
+                                    <label>Upload da carta de recomendação do recomendante 1 (em formato pdf ou jpg e tamanho máximo de 2MB): *</label>
+                                    <input id="letterfile1" name="letterfile1" type="file" /><br />
                                     <!-- <input type="submit" value="Send files" /> -->
                                     <!-- ==========================================================================================================-->
                                     <!-- ==========================================================================================================-->
@@ -527,14 +528,15 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                         if ($_SESSION['carta2'] != ""){ ?>
                                             <p>
                                                 <label>Carta de recomendação já enviada:</label>
-                                                <a href="<?php echo $_SESSION['carta2'] ?>">Carta do recomendante 2</a>
+                                                <a href="<?php echo $_SESSION['carta2']; ?>" target="_blank">Carta do recomendante 2</a>
                                             </p>
                                     <?php }
                                      ?>
+                                     <input type="hidden" name="temcarta2" id="temcarta2" value="<?php echo $_SESSION['carta2']; ?>" />
                                     <!-- ==========================================================================================================-->
                                     <!-- ==========================================================================================================-->
-                                    <label>Upload da carta de recomendação do recomendante 2 (em pdf ou jpg):</label>
-                                    <input name="letterfile2" type="file" /><br />
+                                    <label>Upload da carta de recomendação do recomendante 2 (em formato pdf ou jpg e tamanho máximo de 2MB): *</label>
+                                    <input id="letterfile2" name="letterfile2" type="file" /><br />
                                     <!-- <input type="submit" value="Send files" /> -->
                                     <!-- ==========================================================================================================-->
                                     <!-- ==========================================================================================================-->

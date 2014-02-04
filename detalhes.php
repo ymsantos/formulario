@@ -189,7 +189,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                     <label>Data de Término: <span><?php echo $dtfim_mest; ?></span></label>
                                 <?php } ?>
                                 <hr />
-                                <label>Link do Currículo Lattes: <span><a href="<?php echo $candidato['cvlattes']; ?>"><?php echo $candidato['cvlattes']; ?></a></span></label>
+                                <label>Link do Currículo Lattes: <span><a href="<?php echo $candidato['cvlattes']; ?>" target="_blank"><?php echo $candidato['cvlattes']; ?></a></span></label>
                                 <br />
                             </div>
                             <!-- End Form -->
@@ -294,6 +294,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                             echo "-";
                                         ?>
                                     </span></label>
+                                    <a href="<?php echo $candidato['carta1']; ?>" target="_blank">Carta do recomendante 1</a>
                                 <hr />
                                 <label>Nome do recomendante 2: <span><?php echo $candidato['nome_r2']; ?></span></label>
                                 <label>E-mail do recomendante 2: <span><?php echo $candidato['email_r2']; ?></span></label>
@@ -316,6 +317,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                         ?>
 
                                     </span></label>
+                                    <a href="<?php echo $candidato['carta2']; ?>" target="_blank">Carta do recomendante 2</a>
                                 <br />
                             </div>
                             <!-- End Form -->

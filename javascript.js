@@ -544,6 +544,24 @@ function validaCartasRecomendacao(){
         alert("Selecione uma opção sobre seu relacionamento com o recomendante 1");
         return false;
     }
+
+    // Carta recomendante 1
+    if(document.getElementById("temcarta1").value == "" && document.getElementById("letterfile1").value == ""){
+        alert("Selecione a carta do recomendante 1 (em .jpg ou .pdf) para fazer upload");
+        return false;
+    }
+    
+    if(document.getElementById("letterfile1").value != ""){
+        var vExt = document.getElementById("letterfile1").value;
+        vExt = vExt.toLowerCase();
+        var vExtension = vExt.split(".");
+        vExtension = vExtension.reverse();
+
+        if(vExtension[0] != "pdf" && vExtension[0] != "jpg"){
+            alert("A carta do recomendante 1 deve estar no formato pdf ou jpg");
+            return false;
+        }
+    }
     
     if(radio[radio.length-1].checked){
         // se escolheu a opcao outro e nao preencheu
@@ -556,13 +574,13 @@ function validaCartasRecomendacao(){
     
     // Nome recomendante 2
     if(!validaLetra("nome-r2", document.getElementById("nome-r2").value)){
-        alert("Preencha o nome do recomendante 1 corretamente");
+        alert("Preencha o nome do recomendante 2 corretamente");
         return false;
     }
     
     // Email recomendante 2
     if(!validaEmail("email-r2", document.getElementById("email-r2").value)){
-        alert("Preencha o e-mail do recomendante 1 corretamente");
+        alert("Preencha o e-mail do recomendante 2 corretamente");
         return false;
     }
     
@@ -577,6 +595,24 @@ function validaCartasRecomendacao(){
     if(flag == false){
         alert("Selecione uma opção sobre seu relacionamento com o recomendante 2");
         return false;
+    }
+
+    // Carta recomendante 2
+    if(document.getElementById("temcarta2").value == "" && document.getElementById("letterfile2").value == ""){
+        alert("Selecione a carta do recomendante 2 (em .jpg ou .pdf) para fazer upload");
+        return false;
+    }
+
+    if(document.getElementById("letterfile2").value != ""){
+        var vExt2 = document.getElementById("letterfile2").value;
+        vExt2 = vExt2.toLowerCase();
+        var vExtension2 = vExt2.split(".");
+        vExtension2 = vExtension2.reverse();
+
+        if(vExtension2[0] != "pdf" && vExtension2[0] != "jpg"){
+            alert("A carta do recomendante 2 deve estar no formato pdf ou jpg");
+            return false;
+        }
     }
     
     if(radio[radio.length-1].checked){
