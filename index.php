@@ -186,7 +186,8 @@ session_start();
 
                                 <p>
                                     <!-- <a href="esqueci.php">Esqueceu a senha?</a> -->
-                                    <a href="#" onclick="showDiv('esqueci')">Esqueceu a senha?</a>    
+                                    <!-- <a href="#" onclick="showDiv('esqueci')">Esqueceu a senha?</a> -->
+                                    <a href="esqueci.php">Esqueceu a senha?</a>
                                 </p>
                                 <div id="esqueci" style="display:none"> 
                                     <p>Por favor entre em contato através do email <strong>ppgcm@ufscar.br</strong> com seu Nome e CPF e em breve lhe enviaremos uma nova senha</p>

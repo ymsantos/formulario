@@ -134,10 +134,11 @@
     $relacao_r1="";
     if (isset($_POST["recom1"])) {
         foreach ($_POST["recom1"] as $it) {
-            $relacao_r1 .= $it . ", " ;
+            // $relacao_r1 .= $it . ", " ;
+            $relacao_r1 .= $it;
         }
     }
-    $_SESSION['relacao_r1'] = $relacao_r1 = preg_replace( "/, $/", "", $relacao_r1);
+    $_SESSION['relacao_r1'] = $relacao_r1; // = preg_replace( "/, $/", "", $relacao_r1);
     
     $_SESSION['outro_r1'] = $outro_r1 = isset($_POST['outro-r1'])?$_POST['outro-r1']:"";
 
@@ -224,12 +225,13 @@
     $_SESSION['email_r2'] = $email_r2 = isset($_POST['email-r2'])?$_POST['email-r2']:"";
     
     $relacao_r2="";
-    if (isset($_POST["recom2"])) {
-        foreach ($_POST["recom2"] as $it) {
-            $relacao_r2 .= $it . ", " ;
+    if (isset($_POST['recom2'])) {
+        foreach ($_POST['recom2'] as $it2) {
+            // $relacao_r2 .= $it . ", " ;
+            $relacao_r2 .= $it2;
         }
     }
-    $_SESSION['relacao_r2'] = $relacao_r2 = preg_replace( "/, $/", "", $relacao_r2);
+    $_SESSION['relacao_r2'] = $relacao_r2; // = preg_replace( "/, $/", "", $relacao_r2);
     
     $_SESSION['outro_r2'] = $outro_r2 = isset($_POST['outro-r2'])?$_POST['outro-r2']:"";
 
@@ -459,7 +461,8 @@
     if ($ok) {
         //echo "Cadastro efetuado com sucessso!";
         if(!isset($_GET['dados']) || $_GET['dados'] == 'fim' || $_GET['dados'] == 'cr'){
-           include('sucessoAlteracao.php');
+           // include('sucessoAlteracao.php');
+            header('location: refresh.php');
         }
         else if($_GET['dados'] == 'dp')
             header('location: candidato.php?show=fa',true);

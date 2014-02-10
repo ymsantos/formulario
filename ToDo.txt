@@ -11,7 +11,7 @@
 - excluir do disco qdo aluno eh excluido do processo; OK
 - mostrar link para carta em detalhes; OK
 - salvar txt com infos;
-- "recuperaSenha.php";
-- atualizar corretamente radios marcados logo apos uma atualização de cadastro;
+- "recuperaSenha.php"; OK
+- atualizar corretamente radios marcados logo apos uma atualização de cadastro; OK
 
 - TESTES CONSTANTES!

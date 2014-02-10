@@ -279,14 +279,39 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                 <label>Relação com o recomendante 1:<span>
                                         <?php
                                         $flag_nenuhum = true;
-                                        for ($i = 0; $i < 5; $i++) {
-                                            if (strstr($candidato['relacao_r1'], "$i") != "") {
-                                                echo "<br />" . "$relacao[$i]";
-                                                $flag_nenuhum = false;
-                                            }
-                                        } // fim for  
+                                        
+                                        if (strstr($candidato['relacao_r1'], "ruz") != "") {
+                                            echo "<br />" . "$relacao[0]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r1'], "ruu") != "") {
+                                            echo "<br />" . "$relacao[1]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r1'], "rud") != "") {
+                                            echo "<br />" . "$relacao[2]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r1'], "rut") != "") {
+                                            echo "<br />" . "$relacao[3]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r1'], "ruq") != "") {
+                                            echo "<br />" . "$relacao[4]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r1'], "ruc") != "") {
+                                            echo "<br />" . "$relacao[5]";
+                                            $flag_nenuhum = false;
+                                        }
+                                        
                                         // para a opcao 'outro'
-                                        if (strstr($candidato['relacao_r1'], "5") != "") {
+                                        if (strstr($candidato['relacao_r1'], "rus") != "") {
                                             echo "<br />" . $candidato['outro_r1'];
                                             $flag_nenuhum = false;
                                         }
@@ -301,14 +326,39 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                 <label>Relação com o recomendante 2:<span>
                                         <?php
                                         $flag_nenuhum = true;
-                                        for ($i = 0; $i < 5; $i++) {
-                                            if (strstr($candidato['relacao_r2'], "$i") != "") {
-                                                echo "<br />" . "$relacao[$i]";
-                                                $flag_nenuhum = false;
-                                            }
-                                        } // fim for  
+                                        
+                                        if (strstr($candidato['relacao_r2'], "rdz") != "") {
+                                            echo "<br />" . "$relacao[0]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r2'], "rdu") != "") {
+                                            echo "<br />" . "$relacao[1]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r2'], "rdd") != "") {
+                                            echo "<br />" . "$relacao[2]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r2'], "rdt") != "") {
+                                            echo "<br />" . "$relacao[3]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r2'], "rdq") != "") {
+                                            echo "<br />" . "$relacao[4]";
+                                            $flag_nenuhum = false;
+                                        }
+
+                                        if (strstr($candidato['relacao_r2'], "rdc") != "") {
+                                            echo "<br />" . "$relacao[5]";
+                                            $flag_nenuhum = false;
+                                        }
+
                                         // para a opcao 'outro'
-                                        if (strstr($candidato['relacao_r2'], "5") != "") {
+                                        if (strstr($candidato['relacao_r2'], "rds") != "") {
                                             echo "<br />" . $candidato['outro_r2'];
                                             $flag_nenuhum = false;
                                         }

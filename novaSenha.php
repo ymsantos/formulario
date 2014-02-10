@@ -1,13 +1,19 @@
 <?php
+session_start();
+
 include("cabecalho.php");
 include("conexao.php");
 
-// Para garantir que nao tem nada na sessao
-session_start();
-session_destroy();
-session_unset();
+$id = $_GET['pa'];
+$hash = $_GET['pb'];
 
-session_start();
+$sql = "SELECT * FROM dados_aluno WHERE cpf_passaporte=$id AND senha='$hash'";
+$rs = mysql_query($sql);
+$dados = mysql_fetch_array($rs);
+
+if (mysql_num_rows($rs) == 0){
+    header('location: oops.php');
+} else {
 ?>
 
 
@@ -44,40 +50,35 @@ session_start();
             <!-- Content -->
             <div id="content">
 
-                <form method="post" action="recuperaSenha.php">
+                <form method="post" action="RecebeNovaSenha.php">
                     <!-- Box -->
                     <div class="box">
                         <!-- Box Head -->
                         <div class="box-head">
-                            <h2>Recuperação de senha</h2>
+                            <h2>Cadastrar nova senha</h2>
                         </div>
                         <!-- End Box Head -->
                         <!-- Form -->
                         <div class="form">
-                            <?php if (isset($_GET['p']) && $_GET['p'] == 'erroCadastro') { ?>
-                                <div class="msg msg-error" style="line-height: 1.2">
-                                    <p><strong>Não foi encontrado nenhum usuário cadastrados com estes dados! Verifique se digitou corretamente</strong></p>
-                                </div>
-                            <?php } ?>
                             <p>
-                                Informe o seu CPF/Passaporte e o seu Documento de Identidade e em breve lhe enviaremos um email com o link para redefinir sua senha.
+                                Preencha corretamente os campos abaixo para alterar sua senha
                             </p>
                             <p>
-                                <label>CPF *</label>
-                                <input type="text" name="cpf" id="cpf" placeholder="ex.: 9998883331" size="30" maxlength="30" class="field" onkeyup="validaNumero(this.id,this.value)" /> 
-                            </p>	
-                            <p>
-                                <label>Documento de Identidade *</label>
-                                <input type="text" name="identidade" id="identidade" placeholder="ex.: 99988833X" size="30" maxlength="30" class="field" onkeyup="validaIdentidade(this.id,this.value)" /> 
+                                <label>Informe uma nova senha * <span>(de 6 a 30 caracteres)</span></label>
+                                <input type="password" name="senha" id="senha" size="30" maxlength="30" class="field" onkeyup="validaSenha(this.id,this.value)" />
                             </p>
+                            <p>
+                                <label>Repita a nova senha *</label>
+                                <input type="password" name="re-senha" id="re-senha" size="30" maxlength="30" class="field" onkeyup="matchSenha(this.id,this.value)" />
+                            </p>
+                            <input type="hidden" id="pa" name="pa" value="<?php echo $id; ?>" />
                             <p><em>* Campos Obrigatórios</em></p>
                         </div>
                         <!-- End Form -->
 
                         <!-- Form Buttons -->
                         <div class="buttons">
-                            <!-- <input type="submit" class="button" name="esqueci"  value="Enviar" onClick=""/> -->
-                            <input type="submit" class="button" name="esqueci"  value="Enviar"/>
+                            <input type="submit" class="button" name="nova-senha"  value="Salvar Senha" onclick="return validaNovaSenha();" />
                         </div>
                         <!-- End Form Buttons -->
                     </div>
@@ -98,4 +99,7 @@ session_start();
 </div>
 <!-- End Container -->
 
-<?php include("rodape.php") ?>
+<?php
+include("rodape.php");
+}
+?>

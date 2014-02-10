@@ -66,12 +66,12 @@ CREATE PROCEDURE uspInserirAluno (
 
 	nome_r1			VARCHAR(100), 
 	email_r1		VARCHAR(100),
-	relacao_r1		SET('0','1','2','3','4','5') ,
+	relacao_r1		VARCHAR(18),
 	carta1			VARCHAR(100),
 	outro_r1		VARCHAR(100), -- sse escolher a opcao 'outro'
 	nome_r2			VARCHAR(100),
 	email_r2		VARCHAR(100),
-	relacao_r2		SET('0','1','2','3','4','5') ,
+	relacao_r2		VARCHAR(18),
 	carta2			VARCHAR(100),
 	outro_r2		VARCHAR(100) -- sse escolher a opcao 'outro'
 )
@@ -245,12 +245,12 @@ CREATE PROCEDURE uspAtualizaDadosAluno (
 
 	nome_r1			VARCHAR(100), 
 	email_r1		VARCHAR(100),
-	relacao_r1		SET('0','1','2','3','4','5') ,
+	relacao_r1		VARCHAR(18),
 	carta1			VARCHAR(100),
 	outro_r1		VARCHAR(100), -- sse escolher a opcao 'outro'
 	nome_r2			VARCHAR(100),
 	email_r2		VARCHAR(100),
-	relacao_r2		SET('0','1','2','3','4','5') ,
+	relacao_r2		VARCHAR(18),
 	carta2			VARCHAR(100),
 	outro_r2		VARCHAR(100), -- sse escolher a opcao 'outro'
 
@@ -489,12 +489,12 @@ CREATE PROCEDURE uspAtualizaCR (
 
 	nome_r1			VARCHAR(100), 
 	email_r1		VARCHAR(100),
-	relacao_r1		SET('0','1','2','3','4','5') ,
+	relacao_r1		VARCHAR(18),
 	carta1			VARCHAR(100),
 	outro_r1		VARCHAR(100), -- sse escolher a opcao 'outro'
 	nome_r2			VARCHAR(100),
 	email_r2		VARCHAR(100),
-	relacao_r2		SET('0','1','2','3','4','5') ,
+	relacao_r2		VARCHAR(18),
 	carta2			VARCHAR(100),
 	outro_r2		VARCHAR(100) -- sse escolher a opcao 'outro'
 )

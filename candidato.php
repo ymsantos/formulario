@@ -85,8 +85,9 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                         <input type="text" name="nome" id="nome" placeholder="ex.: Alan Turing" size="100" maxlength="100" class="field" value="<?php echo $_SESSION['nome']; ?>" onkeyup="validaLetra(this.id,this.value)" />
                                     </p>
                                     <p>
-                                        <label>CPF *<span>(apenas números - caso seja estrangeiro, informe o passaporte)</span></label>
-                                        <input type="text" name="cpf" id="cpf" placeholder="ex.: 9998887770" size="30" maxlength="30" class="field" value="<?php echo $_SESSION['cpf']; ?>" onkeyup="validaNumero(this.id,this.value)" /> 
+                                        <!-- <label>CPF *<span>(apenas números - caso seja estrangeiro, informe o passaporte)</span></label> -->
+                                        <label>CPF</label>
+                                        <input type="text" name="cpf" id="cpf" placeholder="ex.: 9998887770" size="30" maxlength="30" class="field" value="<?php echo $_SESSION['cpf']; ?>" readonly onkeyup="validaNumero(this.id,this.value)" /> 
                                     </p>
                                     <p>
                                         <label>Documento de Identidade * <span>(apenas números, ou 'X' quando houver)</span></label>
@@ -474,15 +475,15 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
                                     </p>	
                                     <label>Qual a sua relação com o recomendante 1: *</label>
                                     <p>    
-                                        <input type="checkbox" name="recom1[]" value="0" <?php if (strstr($_SESSION['relacao_r1'], "0") != "") echo 'checked'; ?> /> Fui aluno de disciplina do recomendador.
-                                        <br /><input type="checkbox" name="recom1[]" value="1" <?php if (strstr($_SESSION['relacao_r1'], "1") != "") echo 'checked'; ?> /> Fui orientado pelo recomendador.
-                                        <br /><input type="checkbox" name="recom1[]" value="2" <?php if (strstr($_SESSION['relacao_r1'], "2") != "") echo 'checked'; ?> /> Fui aluno em mais de uma disciplina do recomendador.
-                                        <br /><input type="checkbox" name="recom1[]" value="3" <?php if (strstr($_SESSION['relacao_r1'], "3") != "") echo 'checked'; ?> /> O recomendador foi chefe do departamento onde estudei.
-                                        <br /><input type="checkbox" name="recom1[]" value="4" <?php if (strstr($_SESSION['relacao_r1'], "4") != "") echo 'checked'; ?> /> O recomendador possuía cargo de chefia, gerência ou direção na empresa onde trabalhei.
-                                        <br /><input type="checkbox" name="recom1[]" value="5" <?php if (strstr($_SESSION['relacao_r1'], "5") != "") echo 'checked'; ?> /> Meu colega.
-                                        <br /><input type="checkbox" name="recom1[]" value="6" <?php if (strstr($_SESSION['relacao_r1'], "6") != "") echo 'checked'; ?> onchange="showAndHide('outro1')"  /> Outro
+                                        <input type="checkbox" name="recom1[]" value="ruz" <?php if (strstr($_SESSION['relacao_r1'], "ruz") != "") echo 'checked'; ?> /> Fui aluno de disciplina do recomendador.
+                                        <br /><input type="checkbox" name="recom1[]" value="ruu" <?php if (strstr($_SESSION['relacao_r1'], "ruu") != "") echo 'checked'; ?> /> Fui orientado pelo recomendador.
+                                        <br /><input type="checkbox" name="recom1[]" value="rud" <?php if (strstr($_SESSION['relacao_r1'], "rud") != "") echo 'checked'; ?> /> Fui aluno em mais de uma disciplina do recomendador.
+                                        <br /><input type="checkbox" name="recom1[]" value="rut" <?php if (strstr($_SESSION['relacao_r1'], "rut") != "") echo 'checked'; ?> /> O recomendador foi chefe do departamento onde estudei.
+                                        <br /><input type="checkbox" name="recom1[]" value="ruq" <?php if (strstr($_SESSION['relacao_r1'], "ruq") != "") echo 'checked'; ?> /> O recomendador possuía cargo de chefia, gerência ou direção na empresa onde trabalhei.
+                                        <br /><input type="checkbox" name="recom1[]" value="ruc" <?php if (strstr($_SESSION['relacao_r1'], "ruc") != "") echo 'checked'; ?> /> Meu colega.
+                                        <br /><input type="checkbox" name="recom1[]" value="rus" <?php if (strstr($_SESSION['relacao_r1'], "rus") != "") echo 'checked'; ?> onchange="showAndHide('outro1')"  /> Outro
                                     </p>
-                                    <div id="outro1"  <?php if (!strstr($_SESSION['relacao_r1'], "5") != "") echo 'style=display:none'; ?> >
+                                    <div id="outro1"  <?php if (!strstr($_SESSION['relacao_r1'], "rus") != "") echo 'style=display:none'; ?> >
                                         <input type="text" name="outro-r1" id="outro-r1"  value="<?php echo $_SESSION['outro_r1'] ?>" size="50" maxlength="100" class="field"/> 
                                     </div>
                                     <?php 
@@ -513,15 +514,15 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {
 
                                     <label>Qual a sua relação com o recomendante 2: *</label>
                                     <p>
-                                        <input type="checkbox" name="recom2[]" value="0" <?php if (strstr($_SESSION['relacao_r2'], "0") != "") echo 'checked'; ?> /> Fui aluno de disciplina do recomendador.
-                                        <br /><input type="checkbox" name="recom2[]" value="1" <?php if (strstr($_SESSION['relacao_r2'], "1") != "") echo 'checked'; ?> /> Fui orientado pelo recomendador.
-                                        <br /><input type="checkbox" name="recom2[]" value="2" <?php if (strstr($_SESSION['relacao_r2'], "2") != "") echo 'checked'; ?> /> Fui aluno em mais de uma disciplina do recomendador.
-                                        <br /><input type="checkbox" name="recom2[]" value="3" <?php if (strstr($_SESSION['relacao_r2'], "3") != "") echo 'checked'; ?> /> O recomendador foi chefe do departamento onde estudei.
-                                        <br /><input type="checkbox" name="recom2[]" value="4" <?php if (strstr($_SESSION['relacao_r2'], "4") != "") echo 'checked'; ?> /> O recomendador possuía cargo de chefia, gerência ou direção na empresa onde trabalhei.
-                                        <br /><input type="checkbox" name="recom2[]" value="5" <?php if (strstr($_SESSION['relacao_r2'], "5") != "") echo 'checked'; ?> /> Meu colega.
-                                        <br /><input type="checkbox" name="recom2[]" value="6" <?php if (strstr($_SESSION['relacao_r2'], "6") != "") echo 'checked'; ?> onchange="showAndHide('outro2')" /> Outro
+                                        <input type="checkbox" name="recom2[]" value="rdz" <?php if (strstr($_SESSION['relacao_r2'], "rdz") != "") echo 'checked'; ?> /> Fui aluno de disciplina do recomendador.
+                                        <br /><input type="checkbox" name="recom2[]" value="rdu" <?php if (strstr($_SESSION['relacao_r2'], "rdu") != "") echo 'checked'; ?> /> Fui orientado pelo recomendador.
+                                        <br /><input type="checkbox" name="recom2[]" value="rdd" <?php if (strstr($_SESSION['relacao_r2'], "rdd") != "") echo 'checked'; ?> /> Fui aluno em mais de uma disciplina do recomendador.
+                                        <br /><input type="checkbox" name="recom2[]" value="rdt" <?php if (strstr($_SESSION['relacao_r2'], "rdt") != "") echo 'checked'; ?> /> O recomendador foi chefe do departamento onde estudei.
+                                        <br /><input type="checkbox" name="recom2[]" value="rdq" <?php if (strstr($_SESSION['relacao_r2'], "rdq") != "") echo 'checked'; ?> /> O recomendador possuía cargo de chefia, gerência ou direção na empresa onde trabalhei.
+                                        <br /><input type="checkbox" name="recom2[]" value="rdc" <?php if (strstr($_SESSION['relacao_r2'], "rdc") != "") echo 'checked'; ?> /> Meu colega.
+                                        <br /><input type="checkbox" name="recom2[]" value="rds" <?php if (strstr($_SESSION['relacao_r2'], "rds") != "") echo 'checked'; ?> onchange="showAndHide('outro2')" /> Outro
                                     </p>
-                                    <div id="outro2" <?php if (!strstr($_SESSION['relacao_r2'], "5")) echo 'style=display:none'; ?>>
+                                    <div id="outro2" <?php if (!strstr($_SESSION['relacao_r2'], "rds")) echo 'style=display:none'; ?>>
                                         <input type="text" name="outro-r2" id="outro-r2" value="<?php echo $_SESSION['outro_r2'] ?>" size="50" maxlength="100" class="field"/> 
                                     </div>
                                     <?php 
