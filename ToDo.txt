@@ -10,7 +10,7 @@
 - validar quando foto nao eh selecionada ou qdo eh formato errado; OK
 - excluir do disco qdo aluno eh excluido do processo; OK
 - mostrar link para carta em detalhes; OK
-- salvar txt com infos;
+- salvar txt com infos; OK
 - "recuperaSenha.php"; OK
 - atualizar corretamente radios marcados logo apos uma atualização de cadastro; OK
 

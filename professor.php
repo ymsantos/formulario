@@ -118,11 +118,13 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                         $ps = $_GET['ps']; // processo seletivo
                         $ai = $_GET['ai']; // area de interesse
 
-                        if($ai == 3)
+                        if($ai == 3) {
                             $query = "SELECT nome_aluno,cpf_passaporte, area_interesse FROM dados_aluno WHERE proc_seletivo='$ps' AND finalizado=true";
-                        else
+                            $_SESSION['query_rel'] = "SELECT * FROM dados_aluno WHERE proc_seletivo='$ps' AND finalizado=true";
+                        } else {
                             $query = "SELECT nome_aluno,cpf_passaporte, area_interesse FROM dados_aluno WHERE proc_seletivo='$ps' AND area_interesse=$ai AND finalizado=true";
-
+                            $_SESSION['query_rel'] = "SELECT * FROM dados_aluno WHERE proc_seletivo='$ps' AND area_interesse=$ai AND finalizado=true";
+                        }
                         // Executa a query no Banco de Dados
                         $rs = mysql_query($query);
 
@@ -176,6 +178,7 @@ if (!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false || !isset($_SESSION[
                                 <!-- Table -->
                                 <div class="table">
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <center><a href="downloadDetalhes.php"><strong>Clique aqui</strong></a> para baixar os detalhes de todos os candidatos listados abaixo em um arquivo csv.</center>
                                         <tr>
                                             <th>Nome</th>
                                             <th width="290">Área de Interesse</th>
